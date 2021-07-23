@@ -47,3 +47,99 @@ const randomNumber = () => {
   console.log(randomNumber)
   return randomNumber
 }
+
+// Fonction lancé de dé
+const roll = (roundTextPlayer) => {
+  // Changement du canvas en fonction du Number retourné
+  let ctx;
+  if (canvas.getContext) {
+    ctx = canvas.getContext('2d')
+    ctx.strokeRect(0, 0, 150, 150)
+    switch(randomNumber()) {
+      case 1:
+        ctx.beginPath()
+        ctx.arc(75, 75, 8, 0, Math.PI * 2)
+        ctx.fillStyle = 'red'
+        ctx.fill()
+        ctx.closePath()
+        roundScore = 0
+        alert('Manque de chance, vous êtes tombé sur 1 !\nA votre adversaire de jouer ...')
+        if (playerOne.isPlaying === true && playerTwo.isPlaying === false) {
+          playerOne.endPlaying()
+          playerTwo.startPlaying()
+        }
+        else if (playerTwo.isPlaying === true && playerOne.isPlaying === false) {
+          playerTwo.endPlaying()
+          playerOne.startPlaying()
+        }
+        break
+      case 2:
+        ctx.beginPath()
+        ctx.arc(40, 40, 8, 0, Math.PI * 2)
+        ctx.arc(110, 110, 8, 0, Math.PI * 2)
+        ctx.fillStyle = 'red'
+        ctx.fill()
+        ctx.closePath()
+        roundScore += 2
+        break
+      case 3:
+        ctx.beginPath()
+        ctx.arc(40, 40, 8, 0, Math.PI * 2)
+        ctx.arc(75, 75, 8, 0, Math.PI * 2)
+        ctx.arc(110, 110, 8, 0, Math.PI * 2)
+        ctx.fillStyle = 'red'
+        ctx.fill()
+        ctx.closePath()
+        roundScore += 3
+        break;
+      case 4:
+        ctx.beginPath()
+        ctx.arc(40, 40, 8, 0, Math.PI * 2)
+        ctx.arc(40, 110, 8, 0, Math.PI * 2)
+        ctx.closePath()
+        ctx.arc(110, 110, 8, 0, Math.PI * 2)
+        ctx.closePath()
+        ctx.arc(110, 40, 8, 0, Math.PI * 2)
+        ctx.fillStyle = 'red'
+        ctx.fill()
+        ctx.closePath()
+        roundScore += 4
+        break
+      case 5:
+        ctx.beginPath()
+        ctx.arc(40, 40, 8, 0, Math.PI * 2)
+        ctx.arc(40, 110, 8, 0, Math.PI * 2)
+        ctx.closePath()
+        ctx.arc(110, 110, 8, 0, Math.PI * 2)
+        ctx.closePath()
+        ctx.arc(110, 40, 8, 0, Math.PI * 2)
+        ctx.closePath()
+        ctx.arc(75, 75, 8, 0, Math.PI * 2)
+        ctx.fillStyle = 'red'
+        ctx.fill()
+        ctx.closePath()
+        roundScore += 5
+        break
+      case 6:
+        ctx.beginPath()
+        ctx.arc(40, 40, 8, 0, Math.PI * 2)
+        ctx.arc(40, 75, 8, 0, Math.PI * 2)
+        ctx.arc(40, 110, 8, 0, Math.PI * 2)
+        ctx.closePath()
+        ctx.arc(110, 40, 8, 0, Math.PI * 2)
+        ctx.closePath()
+        ctx.arc(110, 75, 8, 0, Math.PI * 2)
+        ctx.closePath()
+        ctx.arc(110, 110, 8, 0, Math.PI * 2)
+        ctx.closePath()
+        ctx.fillStyle = 'red'
+        ctx.fill()
+        ctx.closePath()
+        roundScore += 6
+        break
+    }
+    roundTextPlayer.textContent = roundScore
+  } else {
+    alert('Votre navigateur ne prend pas en charge cette fonctionnalitée ...')
+  }
+}
