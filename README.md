@@ -1,1 +1,1 @@
-�VALUATION D’ENTRAÎNEMENT : Dynamiser vos sites web avec Javascript
+ÉVALUATION D’ENTRAÎNEMENT : Dynamiser vos sites web avec Javascript
