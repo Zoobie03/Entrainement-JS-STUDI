@@ -48,6 +48,14 @@ const randomNumber = () => {
   return randomNumber
 }
 
+// Fonction hold
+const hold = (roundTextPlayer, globalTextPlayer) => {
+  globalScore += roundScore
+  roundScore = 0
+  roundTextPlayer.textContent = roundScore
+  globalTextPlayer.textContent = globalScore
+}
+
 // Fonction lancé de dé
 const roll = (roundTextPlayer) => {
   // Changement du canvas en fonction du Number retourné
