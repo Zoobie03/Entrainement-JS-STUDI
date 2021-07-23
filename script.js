@@ -38,3 +38,12 @@ player2NameText.textContent = playerTwo.playerName
 // Définition de la variable round & global
 let roundScore = 0
 let globalScore = 0
+
+// Fonction nombre aléatoire
+const randomNumber = () => {
+  let min = Math.ceil(1)
+  let max = Math.floor(6)
+  let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min
+  console.log(randomNumber)
+  return randomNumber
+}
