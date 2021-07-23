@@ -151,3 +151,28 @@ const roll = (roundTextPlayer) => {
     alert('Votre navigateur ne prend pas en charge cette fonctionnalitée ...')
   }
 }
+
+// Event sur le bouton Roll
+rollButton.addEventListener('click', () => {
+  canvas.getContext('2d').clearRect(0, 0, 150, 150);
+  if (playerOne.isPlaying === true && playerTwo.isPlaying === false) {
+    roll(roundTextPlayer1)
+  } else if (playerTwo.isPlaying === true && playerOne.isPlaying === false) {
+    roll(roundTextPlayer2)
+  }
+})
+
+// Event sur le bouton Hold
+holdButton.addEventListener('click', () => {
+  if (playerOne.isPlaying === true) {
+    hold(roundTextPlayer1, globalTextPlayer1)
+    playerOne.endPlaying()
+    playerTwo.startPlaying()
+    // function switch
+  }
+  else if (playerTwo.isPlaying === true && playerOne.isPlaying === false) {
+    hold(roundTextPlayer2, globalTextPlayer2)
+    playerTwo.endPlaying()
+    playerOne.startPlaying()
+  }
+})
