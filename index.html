@@ -17,36 +17,76 @@
     <title>Jeux de dé</title>
     <meta name="description" content="A little dice game for 2 players">
   </head>
-  <body>
-    
+  <body class="player1">
+    <!-- Rules modal -->
+    <a href="#modalRules" class="modalLink">Règles du jeu</a>
+    <div id="modalRules" class="modal">
+      <div class="modal_content">
+        <h1>Bienvenue sur <b>Roll The Dice !</b></h1>
+        <h2><b><u>Règles du jeu :</u></b></h2>
+        <p>
+          Le jeu comprend 2 joueurs sur un seul et même écran.
+        </p>
+        <p>Chaque joueur possède un score temporaire et un score global.</p>
+        <p>
+          À chaque tour, le joueur a son score temporaire initialisé à 0 et peut lancer un 
+          dé autant de fois qu'il le souhaite. Le résultat d’un lancer est ajouté au score temporaire.
+        </p>
+        <p>
+          Le joueur peut décider de cliquer sur le bouton "HOLD" qui lui permettra d'ajouter son 
+          score temporaire a son score global.
+        </p>
+        <p>Si le joueur <b>fait 1 avec le dé</b>, alors le score temporaire est perdu et le tour terminé.</p>      
+        <p>
+          <b>Le premier joueur qui atteint les <u>100 points</u> au score global gagne la partie.</b>
+        </p>
+        <a href="#" class="modal_close">&times;</a>
+      </div>
+    </div>
+    <!-- START GRID -->
     <ion-grid>
       <!-- 1st row -->
       <ion-row>
-        <ion-col size="12" class="ion-padding ion-margin">
+        <!-- only col -->
+        <ion-col size="5">
+        
+        </ion-col>
+        <ion-col size="2" class="ion-padding ion-margin">
           <span class="new-game" id="newGameButton">
             <ion-icon color="danger" name="add-circle-outline"></ion-icon>
             <a>NEW GAME</a>
           </span>
         </ion-col>
+        <ion-col size="5">
+
+        </ion-col>
       </ion-row>
 
       <!-- 2nd row -->
       <ion-row class="ion-margin ion-padding">
+        <!-- 1st -->
         <ion-col class="ion-text-center">
           <span class="player is-played" id="player1">PLAYER 1</span>
+          <ion-icon name="logo-game-controller-b" color="danger" class="ion-padding-horizontal" id="player1-icone"></ion-icon>
         </ion-col>
+        <!-- 2nd col -->
         <ion-col size="2"></ion-col>
+        <!-- 3rd col -->
         <ion-col class="ion-text-center">
+          <ion-icon name="logo-game-controller-b" color="danger" class="ion-padding-horizontal ion-hide" id="player2-icone"></ion-icon>
           <span class="player" id="player2">PLAYER 2</span>
         </ion-col>
       </ion-row>
 
       <!-- 3rd row -->
       <ion-row class="ion-margin-top ion-padding-top">
+        <!-- 1st col -->
         <ion-col class="ion-text-center">
           <span class="scoreNumber" id="globalPlayer1">0</span>
         </ion-col>
+        <!-- 2nd col -->
         <ion-col size="2"></ion-col>
+        <!-- 3rd col -->
         <ion-col class="ion-text-center">
           <span class="scoreNumber" id="globalPlayer2">0</span>
         </ion-col>
@@ -54,6 +94,7 @@
 
       <!-- 4th row -->
       <ion-row class="ion-margin-bottom ion-padding-bottom">
+        <!-- only col -->
         <ion-col>
           <canvas width="150" height="150">
             Votre navigateur n'est pas compatible avec l'élement "canvas"
@@ -63,12 +104,14 @@
 
       <!-- 5th row -->
       <ion-row class="ion-margin-top ion-padding-top">
+        <!-- 1st col -->
         <ion-col>
           <div class="currentRound">
             <span>CURRENT</span>
             <span class="currentNumber" id="currentPlayer1">0</span>
           </div>
         </ion-col>
+        <!-- 2nd col -->
         <ion-col size="2">
           <span class="new-game ion-margin" id="rollButton">
             <ion-icon color="danger" name="reload-outline"></ion-icon>
@@ -79,6 +122,7 @@
             <a>HOLD</a>
           </span>
         </ion-col>
+        <!-- 3rd col -->
         <ion-col>
           <div class="currentRound">
             <span>CURRENT</span>
@@ -86,8 +130,8 @@
           </div>
         </ion-col>
       </ion-row>
-
     </ion-grid>
+    <!-- END GRID -->
     <script src="script.js"></script>
   </body>
 </html>
