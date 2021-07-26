@@ -95,15 +95,32 @@ const randomNumber = () => {
   let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min
   console.log(randomNumber)
   return randomNumber
-}
+};
+
+// Fonction d'animation de la zone commentaires
+const commentaryAnimation = (messageInZone, waitSeconde) => {
+  comment.classList.add('animate');
+  comment.textContent = messageInZone;
+  setTimeout(() => {
+    comment.classList.remove('animate');
+  }, waitSeconde);
+}; 
 
 // Fonction hold
-const hold = (roundTextPlayer, globalTextPlayer) => {
-  globalScore += roundScore
-  roundScore = 0
-  roundTextPlayer.textContent = roundScore
-  globalTextPlayer.textContent = globalScore
-}
+const hold = () => {
+  if (playerOne.isPlaying === true) {
+    playerOne.endPlaying();
+    body.classList.remove('player1');
+    body.classList.add('player2');
+    playerTwo.startPlaying();
+  } 
+  else if (playerTwo.isPlaying === true) {
+    playerTwo.endPlaying();
+    body.classList.remove('player2');
+    body.classList.add('player1');
+    playerOne.startPlaying();
+  }
+};
 
 // Fonction lancé de dé
 const roll = (roundTextPlayer) => {
