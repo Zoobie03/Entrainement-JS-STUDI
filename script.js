@@ -122,6 +122,28 @@ const hold = () => {
   }
 };
 
+// Fonction new game
+const newGame = () => {
+  let areYouSure = confirm('Voulez-vous relancer une nouvelle partie ?');
+  if (areYouSure === true) {
+    roundScore = 0;
+    playerOne.globalScorePlayer = 0
+    playerTwo.globalScorePlayer = 0
+    playerOne.endPlaying();
+    playerTwo.endPlaying();
+    playerOne.startPlaying();
+
+    let ctx;
+    if (canvas.getContext) {
+      ctx = canvas.getContext('2d');
+      canvas.getContext('2d').clearRect(0, 0, 150, 150);
+      ctx.strokeRect(0, 0, 150, 150);
+    }
+  } else {
+    commentaryAnimation('La partie reprend !', 5000);
+  }
+};
+
 // Fonction lancé de dé
 const roll = (roundTextPlayer) => {
   // Changement du canvas en fonction du Number retourné
