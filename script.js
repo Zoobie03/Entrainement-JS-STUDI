@@ -32,7 +32,7 @@ class Player {
     }
     
     startPlaying() {
-      commentaryAnimation(this.playerName + ' à votre tour ...', 3000);
+      commentaryAnimation(this.playerName + ' à votre tour ...', 2000);
       roundScore = 0;
       this.textRoundScore.textContent = roundScore;
       this.isPlaying = true;
@@ -48,7 +48,7 @@ class Player {
       this.iconeIsPlaying.classList.add('ion-hide');
       // Si le score est supérieur ou égal a 100 => vainqueur annoncé => demande de nouvelle partie
       if (this.globalScorePlayer >= 100) {
-        commentaryAnimation(`Félicitation ${this.playerName}, Vous avez gagné !`, 3000);
+        commentaryAnimation(`Félicitation ${this.playerName}, Vous avez gagné !`, 2000);
         newGame();
       } 
     }
@@ -137,7 +137,7 @@ const newGame = () => {
       ctx.strokeRect(0, 0, 150, 150);
     }
   } else {
-    commentaryAnimation('La partie reprend !', 5000);
+    commentaryAnimation('La partie reprend !', 2000);
   }
 };
 
