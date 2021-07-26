@@ -1,18 +1,26 @@
 // Récupération des éléments du DOM
-const canvas = document.querySelector('canvas')
-const newGamebutton = document.getElementById('newGameButton')
-const rollButton = document.getElementById('rollButton')
-const holdButton = document.getElementById('holdButton')
-const player1NameText = document.getElementById('player1')
-const player2NameText = document.getElementById('player2')
+const body = document.body;
+const canvas = document.querySelector('canvas');
+const newGamebutton = document.getElementById('newGameButton');
+const rollButton = document.getElementById('rollButton');
+const holdButton = document.getElementById('holdButton');
+const player1NameText = document.getElementById('player1');
+const player2NameText = document.getElementById('player2');
+const player1Icone = document.getElementById('player1-icone');
+const player2Icone = document.getElementById('player2-icone');
+const comment = document.getElementById('comment');
+const modalRules = document.getElementById('modalRules');
 
-// Scores des joueurs
-const roundTextPlayer1 = document.getElementById('currentPlayer1')
-const roundTextPlayer2 = document.getElementById('currentPlayer2')
-const globalTextPlayer1 = document.getElementById('globalPlayer1')
-const globalTextPlayer2 = document.getElementById('globalPlayer2')
+// Scores des joueurs DOM
+const roundTextPlayer1 = document.getElementById('currentPlayer1');
+const roundTextPlayer2 = document.getElementById('currentPlayer2');
+const globalTextPlayer1 = document.getElementById('globalPlayer1');
+const globalTextPlayer2 = document.getElementById('globalPlayer2');
 
-// Définition de la classe
+// Initialisation de la variable round
+let roundScore = 0;
+
+// Initialisation de la classe
 class Player {
   constructor(isPlaying) {
     this.playerName = prompt('Entrez le nom des joueurs ?');
