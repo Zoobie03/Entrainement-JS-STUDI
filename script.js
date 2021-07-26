@@ -274,34 +274,10 @@ rollButton.addEventListener('click', () => {
 
 // Event sur le bouton Hold
 holdButton.addEventListener('click', () => {
-  if (playerOne.isPlaying === true) {
-    hold(roundTextPlayer1, globalTextPlayer1)
-    playerOne.endPlaying()
-    playerTwo.startPlaying()
-  }
-  else if (playerTwo.isPlaying === true && playerOne.isPlaying === false) {
-    hold(roundTextPlayer2, globalTextPlayer2)
-    playerTwo.endPlaying()
-    playerOne.startPlaying()
-  }
-})
+  hold();
+});
 
 // Event sur le bouton New Game
 newGamebutton.addEventListener('click', () => {
-  let areYouSure = confirm('Are you sure to start a new game ?')
-  if (areYouSure === true) {
-    roundScore = 0
-    globalScore = 0
-    roundTextPlayer1.textContent = roundScore
-    roundTextPlayer2.textContent = roundScore
-    globalTextPlayer1.textContent = globalScore
-    globalTextPlayer2.textContent = globalScore
-
-    let ctx;
-    if (canvas.getContext) {
-      ctx = canvas.getContext('2d')
-      canvas.getContext('2d').clearRect(0, 0, 150, 150)
-      ctx.strokeRect(0, 0, 150, 150)
-    }
-  }
-})
+  newGame();
+});
