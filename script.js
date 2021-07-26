@@ -145,100 +145,120 @@ const newGame = () => {
 };
 
 // Fonction lancé de dé
-const roll = (roundTextPlayer) => {
+const roll = roundTextPlayer => {
   // Changement du canvas en fonction du Number retourné
   let ctx;
-  if (canvas.getContext) {
-    ctx = canvas.getContext('2d')
-    ctx.strokeRect(0, 0, 150, 150)
-    switch(randomNumber()) {
-      case 1:
-        ctx.beginPath()
-        ctx.arc(75, 75, 8, 0, Math.PI * 2)
-        ctx.fillStyle = 'red'
-        ctx.fill()
-        ctx.closePath()
-        roundScore = 0
-        alert('Manque de chance, vous êtes tombé sur 1 !\nA votre adversaire de jouer ...')
-        if (playerOne.isPlaying === true && playerTwo.isPlaying === false) {
-          playerOne.endPlaying()
-          playerTwo.startPlaying()
-        }
-        else if (playerTwo.isPlaying === true && playerOne.isPlaying === false) {
-          playerTwo.endPlaying()
-          playerOne.startPlaying()
-        }
-        break
-      case 2:
-        ctx.beginPath()
-        ctx.arc(40, 40, 8, 0, Math.PI * 2)
-        ctx.arc(110, 110, 8, 0, Math.PI * 2)
-        ctx.fillStyle = 'red'
-        ctx.fill()
-        ctx.closePath()
-        roundScore += 2
-        break
+  // Si ... canvas est supporté alors ...
+  if (canvas.getContext) { 
+    ctx = canvas.getContext('2d');
+    ctx.strokeRect(0, 0, 150, 150);
+    switch (randomNumber()) {
+      case 1: 
+      // Si la fonction randomNumber renvoi 1 alors ce canvas sera appliqué
+        ctx.beginPath();
+        ctx.arc(75, 75, 8, 0, Math.PI * 2);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+        ctx.closePath();
+        // la variable roundScore se réinitialisera à 0
+        roundScore = 0;
+      // Et c'est au tour de l'aversaire de jouer
+       if (playerOne.isPlaying === true) {
+         playerOne.endPlaying();
+         body.classList.remove("player1");
+         body.classList.add("player2");
+         playerTwo.startPlaying();
+       } 
+       else if (playerTwo.isPlaying === true) {
+         playerTwo.endPlaying();
+         body.classList.remove("player2");
+         body.classList.add("player1");
+         playerOne.startPlaying();
+       }
+        break;
+        case 2:
+        // Si la fonction randomNumber renvoi 2 alors ce canvas sera appliqué
+        ctx.beginPath();
+        ctx.arc(40, 40, 8, 0, Math.PI * 2);
+        ctx.arc(110, 110, 8, 0, Math.PI * 2);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+        ctx.closePath();
+        // la variable roundScore ajoutera 2 a son résulat
+        roundScore += 2;
+        break;
       case 3:
-        ctx.beginPath()
-        ctx.arc(40, 40, 8, 0, Math.PI * 2)
-        ctx.arc(75, 75, 8, 0, Math.PI * 2)
-        ctx.arc(110, 110, 8, 0, Math.PI * 2)
-        ctx.fillStyle = 'red'
-        ctx.fill()
-        ctx.closePath()
-        roundScore += 3
+        // Si la fonction randomNumber renvoi 3 alors ce canvas sera appliqué
+        ctx.beginPath();
+        ctx.arc(40, 40, 8, 0, Math.PI * 2);
+        ctx.arc(75, 75, 8, 0, Math.PI * 2);
+        ctx.arc(110, 110, 8, 0, Math.PI * 2);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+        ctx.closePath();
+        // la variable roundScore ajoutera 3 a son résulat
+        roundScore += 3;
         break;
       case 4:
-        ctx.beginPath()
-        ctx.arc(40, 40, 8, 0, Math.PI * 2)
-        ctx.arc(40, 110, 8, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.arc(110, 110, 8, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.arc(110, 40, 8, 0, Math.PI * 2)
-        ctx.fillStyle = 'red'
-        ctx.fill()
-        ctx.closePath()
-        roundScore += 4
-        break
+        // Si la fonction randomNumber renvoi 4 alors ce canvas sera appliqué
+        ctx.beginPath();
+        ctx.arc(40, 40, 8, 0, Math.PI * 2);
+        ctx.arc(40, 110, 8, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.arc(110, 110, 8, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.arc(110, 40, 8, 0, Math.PI * 2);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+        ctx.closePath();
+        // la variable roundScore ajoutera 4 a son résulat
+        roundScore += 4;
+        break;
       case 5:
-        ctx.beginPath()
-        ctx.arc(40, 40, 8, 0, Math.PI * 2)
-        ctx.arc(40, 110, 8, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.arc(110, 110, 8, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.arc(110, 40, 8, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.arc(75, 75, 8, 0, Math.PI * 2)
-        ctx.fillStyle = 'red'
-        ctx.fill()
-        ctx.closePath()
-        roundScore += 5
-        break
+        // Si la fonction randomNumber renvoi 5 alors ce canvas sera appliqué
+        ctx.beginPath();
+        ctx.arc(40, 40, 8, 0, Math.PI * 2);
+        ctx.arc(40, 110, 8, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.arc(110, 110, 8, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.arc(110, 40, 8, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.arc(75, 75, 8, 0, Math.PI * 2);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+        ctx.closePath();
+        // la variable roundScore ajoutera 5 a son résulat
+        roundScore += 5;
+        break;
       case 6:
-        ctx.beginPath()
-        ctx.arc(40, 40, 8, 0, Math.PI * 2)
-        ctx.arc(40, 75, 8, 0, Math.PI * 2)
-        ctx.arc(40, 110, 8, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.arc(110, 40, 8, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.arc(110, 75, 8, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.arc(110, 110, 8, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.fillStyle = 'red'
-        ctx.fill()
-        ctx.closePath()
-        roundScore += 6
-        break
+        // Si la fonction randomNumber renvoi 6 alors ce canvas sera appliqué
+        ctx.beginPath();
+        ctx.arc(40, 40, 8, 0, Math.PI * 2);
+        ctx.arc(40, 75, 8, 0, Math.PI * 2);
+        ctx.arc(40, 110, 8, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.arc(110, 40, 8, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.arc(110, 75, 8, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.arc(110, 110, 8, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fillStyle = 'red';
+        ctx.fill();
+        ctx.closePath();
+        // la variable roundScore ajoutera 6 a son résulat
+        roundScore += 6;
+        break;
     }
-    roundTextPlayer.textContent = roundScore
-  } else {
-    alert('Votre navigateur ne prend pas en charge cette fonctionnalitée ...')
+
+    // Le texte de la variable roundScore du joueur actuelle sera mis à jour
+    roundTextPlayer.textContent = roundScore;
+
+  } else { // Sinon ... renvoi un message d'erreur
+    alert('Votre navigateur ne prend pas en charge cette fonctionnalitée ...');
   }
-}
+};
 
 // Event sur le bouton Roll
 rollButton.addEventListener('click', () => {
