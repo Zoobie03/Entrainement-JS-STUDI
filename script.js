@@ -262,13 +262,15 @@ const roll = roundTextPlayer => {
 
 // Event sur le bouton Roll
 rollButton.addEventListener('click', () => {
+  // Clear le canvas pour éviter les bugs a chaque roll
   canvas.getContext('2d').clearRect(0, 0, 150, 150);
-  if (playerOne.isPlaying === true && playerTwo.isPlaying === false) {
-    roll(roundTextPlayer1)
-  } else if (playerTwo.isPlaying === true && playerOne.isPlaying === false) {
-    roll(roundTextPlayer2)
+  if (playerOne.isPlaying === true) {
+    roll(roundTextPlayer1);
   }
-})
+  else if (playerTwo.isPlaying === true) {
+    roll(roundTextPlayer2);
+  }
+});
 
 // Event sur le bouton Hold
 holdButton.addEventListener('click', () => {
