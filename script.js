@@ -22,18 +22,36 @@ let roundScore = 0;
 
 // Initialisation de la classe
 class Player {
-  constructor(isPlaying) {
-    this.playerName = prompt('Entrez le nom des joueurs ?');
+  constructor(playerName, playerNameText, isPlaying, globalScorePlayer, globalScoreText, textRoundScore, iconeIsPlaying) {
+    this.playerName = playerName;
+    this.playerNameText = playerNameText;
     this.isPlaying = isPlaying;
+    this.globalScorePlayer = globalScorePlayer;
+    this.globalScoreText = globalScoreText;
+    this.textRoundScore = textRoundScore;
+    this.iconeIsPlaying = iconeIsPlaying;
   }
-  
+    
   startPlaying() {
-    this.isPlaying = true
-    alert('A votre tour ' + this.playerName)
+    commentaryAnimation(this.playerName + ' à votre tour ...', 3000);
+    roundScore = 0;
+    this.textRoundScore.textContent = roundScore;
+    this.isPlaying = true;
+    this.playerNameText.classList.add('is-played');
+    this.iconeIsPlaying.classList.remove('ion-hide');
   }
-  
+    
   endPlaying() {
-    this.isPlaying = false
+    this.globalScorePlayer += roundScore;
+    this.globalScoreText.textContent = this.globalScorePlayer;
+    this.isPlaying = false;
+    this.playerNameText.classList.remove('is-played');
+    this.iconeIsPlaying.classList.add('ion-hide');
+    // Si le score est supérieur ou égal a 100 => vainqueur annoncé => demande de nouvelle partie
+    if (this.globalScorePlayer >= 100) {
+      commentaryAnimation(`Félicitation ${this.playerName}, Vous avez gagné !`, 3000);
+      newGame();
+    } 
   }
 }
 
