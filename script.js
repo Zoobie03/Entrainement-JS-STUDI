@@ -55,15 +55,38 @@ class Player {
   }
 }
 
-// Définition des instances
-let playerOne = new Player(true)
-let playerTwo = new Player(false)
-player1NameText.textContent = playerOne.playerName
-player2NameText.textContent = playerTwo.playerName
+// Demande de pseudo en jeux
+let userName1 = prompt('Entrez le nom du premier joueur ? 10 caractères maximum') || 'Player';
+let userName2 = prompt('Entrez le nom du deuxième joueur ? 10 caractères maximum') || 'Player 2';
 
-// Définition de la variable round & global
-let roundScore = 0
-let globalScore = 0
+// Initialisation des instances
+  // Player 1
+let playerOne = new Player
+(
+  userName1, 
+  player1NameText, 
+  true, 
+  0, 
+  globalTextPlayer1, 
+  roundTextPlayer1,
+  player1Icone
+);
+
+  // Player 2
+let playerTwo = new Player
+(
+  userName2, 
+  player2NameText, 
+  false, 
+  0, 
+  globalTextPlayer2, 
+  roundTextPlayer2,
+  player2Icone
+);
+
+// Attribution des pseudos de jeu
+playerOne.playerNameText.textContent = userName1;
+playerTwo.playerNameText.textContent = userName2;
 
 // Fonction nombre aléatoire
 const randomNumber = () => {
