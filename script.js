@@ -10,7 +10,6 @@ const player1Icone = document.getElementById('player1-icone');
 const player2Icone = document.getElementById('player2-icone');
 const comment = document.getElementById('comment');
 const modalRules = document.getElementById('modalRules');
-
 // Scores des joueurs DOM
 const roundTextPlayer1 = document.getElementById('currentPlayer1');
 const roundTextPlayer2 = document.getElementById('currentPlayer2');
@@ -23,44 +22,43 @@ let roundScore = 0;
 // Initialisation de la classe
 class Player {
   constructor(playerName, playerNameText, isPlaying, globalScorePlayer, globalScoreText, textRoundScore, iconeIsPlaying) {
-    this.playerName = playerName;
-    this.playerNameText = playerNameText;
-    this.isPlaying = isPlaying;
-    this.globalScorePlayer = globalScorePlayer;
-    this.globalScoreText = globalScoreText;
-    this.textRoundScore = textRoundScore;
-    this.iconeIsPlaying = iconeIsPlaying;
-  }
+      this.playerName = playerName;
+      this.playerNameText = playerNameText;
+      this.isPlaying = isPlaying;
+      this.globalScorePlayer = globalScorePlayer;
+      this.globalScoreText = globalScoreText;
+      this.textRoundScore = textRoundScore;
+      this.iconeIsPlaying = iconeIsPlaying;
+    }
     
-  startPlaying() {
-    commentaryAnimation(this.playerName + ' à votre tour ...', 3000);
-    roundScore = 0;
-    this.textRoundScore.textContent = roundScore;
-    this.isPlaying = true;
-    this.playerNameText.classList.add('is-played');
-    this.iconeIsPlaying.classList.remove('ion-hide');
-  }
+    startPlaying() {
+      commentaryAnimation(this.playerName + ' à votre tour ...', 3000);
+      roundScore = 0;
+      this.textRoundScore.textContent = roundScore;
+      this.isPlaying = true;
+      this.playerNameText.classList.add('is-played');
+      this.iconeIsPlaying.classList.remove('ion-hide');
+    }
     
-  endPlaying() {
-    this.globalScorePlayer += roundScore;
-    this.globalScoreText.textContent = this.globalScorePlayer;
-    this.isPlaying = false;
-    this.playerNameText.classList.remove('is-played');
-    this.iconeIsPlaying.classList.add('ion-hide');
-    // Si le score est supérieur ou égal a 100 => vainqueur annoncé => demande de nouvelle partie
-    if (this.globalScorePlayer >= 100) {
-      commentaryAnimation(`Félicitation ${this.playerName}, Vous avez gagné !`, 3000);
-      newGame();
-    } 
-  }
+    endPlaying() {
+      this.globalScorePlayer += roundScore;
+      this.globalScoreText.textContent = this.globalScorePlayer;
+      this.isPlaying = false;
+      this.playerNameText.classList.remove('is-played');
+      this.iconeIsPlaying.classList.add('ion-hide');
+      // Si le score est supérieur ou égal a 100 => vainqueur annoncé => demande de nouvelle partie
+      if (this.globalScorePlayer >= 100) {
+        commentaryAnimation(`Félicitation ${this.playerName}, Vous avez gagné !`, 3000);
+        newGame();
+      } 
+    }
 }
-
-// Demande de pseudo en jeux
+  
+// Initialisation des instances
 let userName1 = prompt('Entrez le nom du premier joueur ? 10 caractères maximum') || 'Player';
 let userName2 = prompt('Entrez le nom du deuxième joueur ? 10 caractères maximum') || 'Player 2';
 
-// Initialisation des instances
-  // Player 1
+// PLAYER 1
 let playerOne = new Player
 (
   userName1, 
@@ -72,7 +70,7 @@ let playerOne = new Player
   player1Icone
 );
 
-  // Player 2
+// PLAYER 2
 let playerTwo = new Player
 (
   userName2, 
@@ -90,11 +88,10 @@ playerTwo.playerNameText.textContent = userName2;
 
 // Fonction nombre aléatoire
 const randomNumber = () => {
-  let min = Math.ceil(1)
-  let max = Math.floor(6)
-  let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min
-  console.log(randomNumber)
-  return randomNumber
+  let min = Math.ceil(1);
+  let max = Math.floor(6);
+  let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  return randomNumber;
 };
 
 // Fonction d'animation de la zone commentaires
