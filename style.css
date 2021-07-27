@@ -156,6 +156,20 @@ footer {
   text-align: center;
 }
 
+/* Media queries */
+@media all and (max-width: 540px) {
+  .modalLink { font-size: 20px; color: white; background-color: #EB445A; padding: 10px; }
+  .new-game a { display: none; }
+  ion-icon { width: 40px; display: block; }
+  .scoreNumber{ font-size: 60px; }
+  .player { font-size: 25px; }
+  .currentRound { width: 80px; }
+  .currentRound span:first-of-type { display: none; }
+  .currentRound span { font-size: 18px; }
+  .commentary { display: none; }
+  footer { display: none; }
+}
+
 /* Ionic modifs */
 ion-icon {
   font-size: 32px;
