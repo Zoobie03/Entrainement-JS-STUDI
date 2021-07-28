@@ -171,6 +171,13 @@ footer {
   .modal_content h2 { font-size: 1em; }
   .modal_content p { font-size: 1em; }
   .modal_content a { font-size: 3em; }
+  .is-played { 
+    border: 1px solid rgb(235, 68, 90); 
+    padding: 5px;
+    border-radius: 5px;
+  }
+  #player1-icone { display: none; }
+  #player2-icone { display: none; }
   footer { display: none; }
 }
 
