@@ -167,6 +167,10 @@ footer {
   .currentRound span:first-of-type { display: none; }
   .currentRound span { font-size: 18px; }
   .commentary { display: none; }
+  .modal_content h1 { font-size: 1em; }
+  .modal_content h2 { font-size: 1em; }
+  .modal_content p { font-size: 1em; }
+  .modal_content a { font-size: 3em; }
   footer { display: none; }
 }
 
