@@ -13,8 +13,8 @@ Modalités / Restrictions :
 - Votre code sera structuré
 - Le jeu devra être fonctionnel
 - Les ressources seront disponibles dans un dossier images
-o La font sera Lato (google font) : https://fonts.google.com/specimen/Lato
-o Le Framework CSS ionic : https://code.ionicframework.com/#
+- La font sera Lato (google font) : https://fonts.google.com/specimen/Lato
+- Le Framework CSS ionic : https://code.ionicframework.com/#
 
 Barème et critères d’évaluation :
 1. Connaître et utiliser un environnement de développement (2 points).
@@ -22,3 +22,5 @@ Barème et critères d’évaluation :
 3. Utilisation des normes ECMAScript (JS) et du DOM (5 points).
 4. Connaissance et utilisation d’un framework de présentation de type adaptatif (5 points).
 5. Déploiement de la réalisation en ligne (3 points).
+
+Live version : https://lesfreresreveurs.fr/
